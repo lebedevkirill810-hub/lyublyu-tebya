@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Люблю тебя 🫶🏻</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --site-primary: #D94F83;
+  --site-on-primary: #FFFFFF;
+  --site-secondary: #FCE1EB;
+  --site-on-secondary: #64213E;
+  --site-background: #FFF6F9;
+  --site-on-background: #38232D;
+  --site-font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-font-heading: Georgia, "Times New Roman", serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--site-font-body);
+  background: light-dark(var(--site-background), #241923);
+  color: light-dark(var(--site-on-background), #FFF1F6);
+  min-height: 100vh;
+}
+#app {
+  min-height: 100vh;
+  width: 100%;
+  border-radius: 0;
+  background-color: light-dark(var(--site-background), #241923);
+  display: grid;
+  place-items: center;
+  padding: calc(28px * var(--site-spacing-scale));
+  position: relative;
+  overflow: hidden;
+}
+.glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: var(--site-secondary);
+  filter: blur(70px);
+  opacity: calc(.7 * var(--site-decoration-opacity));
+  top: -140px;
+  right: -100px;
+  pointer-events: none;
+}
+.card {
+  position: relative;
+  width: min(100%, 540px);
+  text-align: center;
+  padding: clamp(28px, 7vw, 56px) calc(24px * var(--site-spacing-scale));
+  border: 1px solid light-dark(#F1C5D7, #604052);
+  border-radius: calc(28px * var(--site-radius-scale));
+  background: light-dark(#FFFFFF, #352532);
+  box-shadow: 0 22px 70px rgba(104, 40, 70, .12);
+}
+.heart { font-size: 42px; margin-bottom: 12px; }
+h1 {
+  font-family: var(--site-font-heading);
+  font-size: calc(clamp(2.2rem, 8vw, 3.6rem) * var(--site-heading-scale));
+  line-height: 1.05;
+  color: light-dark(var(--site-primary), #FF9BC0);
+  font-weight: 600;
+  margin: 0 0 34px;
+}
+.eyebrow {
+  color: light-dark(#946075, #E6A9C1);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-size: .75rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.show {
+  background: light-dark(var(--site-secondary), #513344);
+  color: light-dark(var(--site-on-secondary), #FFEAF2);
+  padding: 24px 18px;
+  border-radius: calc(20px * var(--site-radius-scale));
+}
+.show-name {
+  font-family: var(--site-font-heading);
+  font-size: clamp(1.6rem, 6vw, 2.25rem);
+  margin: 0 0 10px;
+}
+.episode { font-size: 1rem; margin: 0; opacity: .88; }
+.time {
+  margin-top: 18px;
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: var(--site-primary);
+  color: var(--site-on-primary);
+  font-weight: 750;
+  font-size: 1.25rem;
+  letter-spacing: .06em;
+}
+.note { margin: 26px 0 0; color: light-dark(#956A7D, #D8AFC0); font-size: .9rem; }
+</style>
+</head>
+<body>
+<main id="app">
+  <div class="glow" aria-hidden="true"></div>
+  <section class="card" aria-label="Люблю тебя">
+    <div class="heart" aria-hidden="true">🫶🏻</div>
+    <h1>Люблю тебя</h1>
+    <div class="eyebrow">Для тебя</div>
+    <div class="show">
+      <p class="show-name">Реальные пацаны</p>
+      <p class="episode">2 сезон · 28 серия</p>
+      <div class="time">43:20</div>
+    </div>
+    <p class="note">❤️</p>
+  </section>
+</main>
+</body>
+</html>
