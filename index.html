@@ -102,6 +102,33 @@ h1 {
   letter-spacing: .06em;
 }
 .note { margin: 26px 0 0; color: light-dark(#956A7D, #D8AFC0); font-size: .9rem; }
+.menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.menu a {
+  padding: 15px 10px;
+  border-radius: 14px;
+  background: #FCE1EB;
+  color: #8F315A;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.section {
+  display: none;
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 16px;
+  background: #FFF8FA;
+}
+
+.section:target {
+  display: block;
+}
 </style>
 </head>
 <body>
@@ -116,6 +143,49 @@ h1 {
       <p class="episode">2 сезон · 29 серия</p>
       <div class="time">20:04</div>
     </div>
+    <nav class="menu">
+
+  <a href="#we">Мы ❤️</a>
+
+  <a href="#natali">Натали 🩷</a>
+
+  <a href="#kirill">Кирилл 🫶🏻</a>
+
+  <a href="#moments">Счастливые моменты ✨</a>
+
+</nav>
+
+<section class="section" id="we">
+
+  <h2>Мы ❤️</h2>
+
+  <p>Наша история, наши чувства и всё, что делает нас особенными.</p>
+
+</section>
+
+<section class="section" id="natali">
+
+  <h2>Натали 🩷</h2>
+
+  <p>Самая нежная и любимая часть этой истории.</p>
+
+</section>
+
+<section class="section" id="kirill">
+
+  <h2>Кирилл 🫶🏻</h2>
+
+  <p>Тот, кто хранит эту историю и дорожит каждым моментом.</p>
+
+</section>
+
+<section class="section" id="moments">
+
+  <h2>Счастливые моменты ✨</h2>
+
+  <p>Здесь будут жить самые тёплые воспоминания.</p>
+
+</section>
     <p class="note">❤️</p>
   </section>
 </main>
