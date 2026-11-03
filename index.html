@@ -1,9 +1,11 @@
+
 <!doctype html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Люблю тебя 🫶🏻</title>
+
 <style>
 :root {
   color-scheme: light dark;
@@ -15,12 +17,12 @@
   --site-on-background: #38232D;
   --site-font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --site-font-heading: Georgia, "Times New Roman", serif;
-  --site-heading-scale: 1;
-  --site-spacing-scale: 1;
-  --site-radius-scale: 1;
-  --site-decoration-opacity: 1;
 }
-* { box-sizing: border-box; }
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: var(--site-font-body);
@@ -28,17 +30,18 @@ body {
   color: light-dark(var(--site-on-background), #FFF1F6);
   min-height: 100vh;
 }
+
 #app {
   min-height: 100vh;
   width: 100%;
-  border-radius: 0;
-  background-color: light-dark(var(--site-background), #241923);
   display: grid;
   place-items: center;
-  padding: calc(28px * var(--site-spacing-scale));
+  padding: 28px;
   position: relative;
   overflow: hidden;
+  background: light-dark(var(--site-background), #241923);
 }
+
 .glow {
   position: absolute;
   width: 320px;
@@ -46,30 +49,37 @@ body {
   border-radius: 50%;
   background: var(--site-secondary);
   filter: blur(70px);
-  opacity: calc(.7 * var(--site-decoration-opacity));
+  opacity: .7;
   top: -140px;
   right: -100px;
   pointer-events: none;
 }
+
 .card {
   position: relative;
   width: min(100%, 540px);
   text-align: center;
-  padding: clamp(28px, 7vw, 56px) calc(24px * var(--site-spacing-scale));
+  padding: clamp(28px, 7vw, 56px) 24px;
   border: 1px solid light-dark(#F1C5D7, #604052);
-  border-radius: calc(28px * var(--site-radius-scale));
+  border-radius: 28px;
   background: light-dark(#FFFFFF, #352532);
   box-shadow: 0 22px 70px rgba(104, 40, 70, .12);
 }
-.heart { font-size: 42px; margin-bottom: 12px; }
+
+.heart {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
 h1 {
   font-family: var(--site-font-heading);
-  font-size: calc(clamp(2.2rem, 8vw, 3.6rem) * var(--site-heading-scale));
+  font-size: clamp(2.2rem, 8vw, 3.6rem);
   line-height: 1.05;
   color: light-dark(var(--site-primary), #FF9BC0);
   font-weight: 600;
   margin: 0 0 34px;
 }
+
 .eyebrow {
   color: light-dark(#946075, #E6A9C1);
   letter-spacing: .16em;
@@ -78,116 +88,153 @@ h1 {
   font-weight: 700;
   margin-bottom: 14px;
 }
+
 .show {
   background: light-dark(var(--site-secondary), #513344);
   color: light-dark(var(--site-on-secondary), #FFEAF2);
   padding: 24px 18px;
-  border-radius: calc(20px * var(--site-radius-scale));
+  border-radius: 20px;
 }
+
 .show-name {
   font-family: var(--site-font-heading);
   font-size: clamp(1.6rem, 6vw, 2.25rem);
-  margin: 0 0 10px;
+  margin: 0;
 }
-.episode { font-size: 1rem; margin: 0; opacity: .88; }
-.time {
-  margin-top: 18px;
-  display: inline-block;
-  padding: 10px 22px;
-  border-radius: 999px;
-  background: var(--site-primary);
-  color: var(--site-on-primary);
-  font-weight: 750;
-  font-size: 1.25rem;
-  letter-spacing: .06em;
-}
-.note { margin: 26px 0 0; color: light-dark(#956A7D, #D8AFC0); font-size: .9rem; }
+
 .menu {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
   margin-top: 22px;
 }
 
 .menu a {
-  padding: 15px 10px;
+  display: block;
+  padding: 18px 10px;
   border-radius: 14px;
-  background: #FCE1EB;
-  color: #8F315A;
+  background: light-dark(var(--site-secondary), #513344);
+  color: light-dark(var(--site-on-secondary), #FFEAF2);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 700;
+  border: 1px solid light-dark(#F1C5D7, #604052);
+  font-size: 1.05rem;
+}
+
+.menu a:active {
+  transform: scale(.98);
 }
 
 .section {
   display: none;
   margin-top: 18px;
-  padding: 18px;
+  padding: 28px 18px;
   border-radius: 16px;
-  background: #FFF8FA;
+  background: #FFFFFF;
+  color: #38232D;
+  border: 1px solid #F1C5D7;
 }
 
 .section:target {
   display: block;
 }
+
+.section h2 {
+  margin: 0 0 18px;
+  color: #D94F83;
+  font-family: var(--site-font-heading);
+  font-size: 1.8rem;
+}
+
+.section p {
+  margin: 0;
+  line-height: 1.6;
+  color: #8F315A;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.note {
+  margin: 26px 0 0;
+  color: light-dark(#956A7D, #D8AFC0);
+  font-size: .9rem;
+}
+
+@media (max-width: 380px) {
+  #app {
+    padding: 14px;
+  }
+
+  .card {
+    padding: 28px 16px;
+  }
+
+  .menu a {
+    font-size: .95rem;
+  }
+}
 </style>
 </head>
+
 <body>
+
 <main id="app">
+
   <div class="glow" aria-hidden="true"></div>
+
   <section class="card" aria-label="Люблю тебя">
+
     <div class="heart" aria-hidden="true">🫶🏻</div>
+
     <h1>Люблю тебя</h1>
+
     <div class="eyebrow">Для тебя</div>
+
     <div class="show">
-      <p class="show-name">Реальные пацаны</p>
-      <p class="episode">2 сезон · 29 серия</p>
-      <div class="time">20:04</div>
+      <p class="show-name">24.05.2026г ❤️</p>
     </div>
-    <nav class="menu">
 
-  <a href="#we">Мы ❤️</a>
+    <nav class="menu" aria-label="Разделы сайта">
+      <a href="#we">Мы ❤️</a>
+      <a href="#natali">Натали 🩷</a>
+      <a href="#kirill">Кирилл 🫶🏻</a>
+      <a href="#moments">Счастливые моменты ✨</a>
+    </nav>
 
-  <a href="#natali">Натали 🩷</a>
+    <section class="section" id="we">
+      <h2>Мы ❤️</h2>
+      <p>
+        Наша история, наши чувства и всё,
+        что делает нас особенными.
+      </p>
+    </section>
 
-  <a href="#kirill">Кирилл 🫶🏻</a>
+    <section class="section" id="natali">
+      <h2>Натали 🩷</h2>
+      <p>
+        Самая нежная и любимая часть этой истории.
+      </p>
+    </section>
 
-  <a href="#moments">Счастливые моменты ✨</a>
+    <section class="section" id="kirill">
+      <h2>Кирилл 🫶🏻</h2>
+      <p>
+        Тот, кто хранит эту историю
+        и дорожит каждым моментом.
+      </p>
+    </section>
 
-</nav>
+    <section class="section" id="moments">
+      <h2>Счастливые моменты ✨</h2>
+      <p>
+        Здесь будут жить самые тёплые воспоминания.
+      </p>
+    </section>
 
-<section class="section" id="we">
-
-  <h2>Мы ❤️</h2>
-
-  <h2>Наша история, наши чувства и всё, что делает нас особенными.</h2>
-
-</section>
-
-<section class="section" id="natali">
-
-  <h2>Натали 🩷</h2>
-
-  <p>Самая нежная и любимая часть этой истории.</p>
-
-</section>
-
-<section class="section" id="kirill">
-
-  <h2>Кирилл 🫶🏻</h2>
-
-  <p>Тот, кто хранит эту историю и дорожит каждым моментом.</p>
-
-</section>
-
-<section class="section" id="moments">
-
-  <h2>Счастливые моменты ✨</h2>
-
-  <p>Здесь будут жить самые тёплые воспоминания.</p>
-
-</section>
     <p class="note">❤️</p>
+
   </section>
 </main>
+
 </body>
 </html>
